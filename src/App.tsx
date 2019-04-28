@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="store-header">
-        <img src="/salad-icon.png" className="logo" />
+        <img src="/salad-icon.png" className="logo" alt="sald-icon" />
         <span>Salad Shop</span>
       </div>
       <OrderContext.Provider value={{ state, dispatch }}>
