@@ -1,11 +1,17 @@
 import { Ingredient } from "./models/ingredient";
 
-export const getTotalPrice = (ingredients: Map<string, Ingredient>, ingredientsOrder: Map<string, number>): number => {
-    let totalPrice = 0;
-    ingredientsOrder.forEach((ingredientAmount, ingredientName) => {
+export const getTotalPrice = (
+  ingredients: Map<string, Ingredient>,
+  ingredientsOrder: Map<string, number>
+): number => {
+  const totalPrice = Array.from(ingredientsOrder).reduce(
+    (accPrice, [ingredientName, ingredientAmount]) => {
       const ingredient = ingredients.get(ingredientName);
-      totalPrice += ingredient.price * ingredientAmount;
-    });
+      accPrice += ingredient.price * ingredientAmount;
+      return accPrice;
+    },
+    0
+  );
 
-    return totalPrice;
-  }
+  return totalPrice;
+};
