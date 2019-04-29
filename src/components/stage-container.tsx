@@ -1,9 +1,9 @@
 import * as React from "react";
-import { LandingPage } from "./landing-page";
-import { IngredientsPage } from "./ingredients/ingredients-page";
-import { CheckoutPage } from "./checkout/checkout-page";
-import { SummaryModal } from "./summary-modal/summary-modal";
-import { OrderSummary } from "./summary-modal/order-summary";
+import { LandingPage } from "./stages/landing-page";
+import { IngredientsPage } from "./stages/ingredients/ingredients-page";
+import { CheckoutPage } from "./stages/checkout/checkout-page";
+import { SummaryModal } from "./stages/summary-modal/summary-modal";
+import { OrderSummary } from "./stages/summary-modal/order-summary";
 import { useState } from "react";
 import { OrderStage } from "../models/types";
 

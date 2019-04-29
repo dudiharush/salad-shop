@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
-import { OrderContext } from "../../models/order-context";
-import { getTotalPrice } from "../../utils";
+import { OrderContext } from "../../../models/order-context";
+import { getTotalPrice } from "../../../utils";
 import { OrderDetailsField } from "./order-details-field";
 
 export const OrderSummary = () => {

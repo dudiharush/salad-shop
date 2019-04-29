@@ -1,8 +1,8 @@
 import * as React from "react";
 import "./ingredients-picker.css";
-import { Ingredient } from "../../models/ingredient";
+import { Ingredient } from "../../../models/ingredient";
 import { useContext } from "react";
-import { OrderContext } from "../../models/order-context";
+import { OrderContext } from "../../../models/order-context";
 
 interface IngredientsPickerProps {
   ingredient: Ingredient;

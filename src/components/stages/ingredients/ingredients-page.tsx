@@ -1,10 +1,10 @@
 import * as React from "react";
 import { IngredientsPicker } from "./ingredient-picker";
-import { OrderContext } from "../../models/order-context";
+import { OrderContext } from "../../../models/order-context";
 import { useContext, useEffect } from "react";
-import { setIngredietns, orderItem } from "../../action-creators";
-import { loadIngredients } from "../../data-loaders";
-import { IStageEvents } from "../../models/types";
+import { setIngredietns, orderItem } from "../../../action-creators";
+import { loadIngredients } from "../../../data-loaders";
+import { IStageEvents } from "../../../models/types";
 
 export const IngredientsPage = (props: IStageEvents) => {
   const { dispatch, state } = useContext(OrderContext);

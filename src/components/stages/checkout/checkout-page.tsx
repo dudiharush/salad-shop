@@ -3,10 +3,14 @@ import { IngredientsPicker } from "../ingredients/ingredient-picker";
 import "./checkout-page.css";
 import { useEffect, useContext } from "react";
 import { DetailsField } from "./details-field";
-import { getTotalPrice } from "../../utils";
-import { OrderContext } from "../../models/order-context";
-import { setName, setEmail, setAdditionalNotes } from "../../action-creators";
-import { IStageEvents } from "../../models/types";
+import { getTotalPrice } from "../../../utils";
+import { OrderContext } from "../../../models/order-context";
+import {
+  setName,
+  setEmail,
+  setAdditionalNotes
+} from "../../../action-creators";
+import { IStageEvents } from "../../../models/types";
 
 export const CheckoutPage = (
   props: IStageEvents & {

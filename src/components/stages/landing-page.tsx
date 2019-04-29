@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IStageEvents } from "../models/types";
+import { IStageEvents } from "../../models/types";
 
 export const LandingPage = ({ goToNext }: IStageEvents) => {
   const orderSaladOnClick = () => goToNext && goToNext();
