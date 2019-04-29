@@ -3,7 +3,7 @@ import { Ingredient } from "../models/ingredient";
 import { getTotalPrice } from "../utils";
 
 it("renders without crashing", () => {
-  const ingredient = new Map<string, Ingredient>([
+  const ingredients = new Map<string, Ingredient>([
     ["cucumber", { name: "cucumber", price: 0.5 }],
     ["tomato", { name: "tomato", price: 0.6 }],
     ["egg", { name: "egg", price: 3 }],
@@ -23,6 +23,6 @@ it("renders without crashing", () => {
     ["egg", 3]
   ]);
   const expectedTotal = 10.7;
-  const actualTotal = getTotalPrice(ingredient, ingredientsOrder);
+  const actualTotal = getTotalPrice(ingredients, ingredientsOrder);
   expect(actualTotal).toEqual(expectedTotal);
 });
