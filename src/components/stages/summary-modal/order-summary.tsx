@@ -8,7 +8,7 @@ export const OrderSummary = () => {
   const { state } = useContext(OrderContext);
   return (
     <div>
-      Thank You Very Much For Ordering From Salad Bar Food Is On its Way!!!
+      Thank You Very Much For Ordering From Salad Shop. Food Is On its Way...
       <OrderDetailsField
         fieldName="Total Price"
         data={getTotalPrice(
