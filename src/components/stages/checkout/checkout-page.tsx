@@ -11,6 +11,7 @@ import {
   setAdditionalNotes
 } from "../../../action-creators";
 import { IStageEvents } from "../../../models/types";
+import * as validator from "validator";
 
 export const CheckoutPage = ({
   goToPrev,
@@ -21,15 +22,26 @@ export const CheckoutPage = ({
   const { dispatch, state } = useContext(OrderContext);
 
   const totalPrice = getTotalPrice(state.ingredients, state.ingredientsOrder);
+  const [validations, setValidations] = React.useState({
+    isEmailValid: true,
+    isFormValidated: false
+  });
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    if (Object.values(validations).every(isValid => isValid)) {
+      setShowModal(true);
+    }
+    return () => {
       setShowModal(false);
-    },
-    [setShowModal]
-  );
+    };
+  }, [setShowModal, ...Object.values(validations)]);
 
-  const orderButtonClick = () => setShowModal(true);
+  const orderButtonClick = () => {
+    setValidations({
+      isEmailValid: validator.isEmail(state.email),
+      isFormValidated: true
+    });
+  };
 
   const goBackButtonClick = () => goToPrev && goToPrev();
 
@@ -56,6 +68,7 @@ export const CheckoutPage = ({
           <DetailsField
             fieldName="Email"
             onChange={email => dispatch(setEmail(email))}
+            isValid={validations.isEmailValid}
           />
           <DetailsField
             fieldName="Additional Notes"

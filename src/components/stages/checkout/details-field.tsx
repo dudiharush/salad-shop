@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./details-field.css";
 
 export const DetailsField = ({
   fieldName,
@@ -11,11 +12,19 @@ export const DetailsField = ({
 }) => {
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     onChange && onChange(event.target.value);
-
+  const fieldClassName =
+    "order-details-field" + (!isValid ? " error-color" : "");
   return (
-    <div className="order-details-field">
+    <div className={fieldClassName}>
       <span>{`${fieldName}:`}</span>
-      <input type="text" onChange={handleOnChange} />
+      <div>
+        {
+          <div className="error-message error-color">
+            {!isValid ? "invalid value" : ""}
+          </div>
+        }
+        <input type="text" onChange={handleOnChange} />
+      </div>
     </div>
   );
 };
