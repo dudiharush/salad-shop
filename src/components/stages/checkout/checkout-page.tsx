@@ -12,20 +12,26 @@ import {
 } from "../../../action-creators";
 import { IStageEvents } from "../../../models/types";
 
-export const CheckoutPage = (
-  props: IStageEvents & {
-    setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
-  }
-) => {
+export const CheckoutPage = ({
+  goToPrev,
+  setShowModal
+}: IStageEvents & {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { dispatch, state } = useContext(OrderContext);
 
   const totalPrice = getTotalPrice(state.ingredients, state.ingredientsOrder);
 
-  useEffect(() => () => props.setShowModal(false), []);
+  useEffect(
+    () => () => {
+      setShowModal(false);
+    },
+    [setShowModal]
+  );
 
-  const orderButtonClick = () => props.setShowModal(true);
+  const orderButtonClick = () => setShowModal(true);
 
-  const goBackButtonClick = () => props.goToPrev && props.goToPrev();
+  const goBackButtonClick = () => goToPrev && goToPrev();
 
   return (
     <>
