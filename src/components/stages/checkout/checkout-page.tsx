@@ -63,15 +63,18 @@ export const CheckoutPage = ({
         <div className="order-details-wrapper">
           <DetailsField
             fieldName="Name"
+            defaultValue={state.name}
             onChange={name => dispatch(setName(name))}
           />
           <DetailsField
             fieldName="Email"
+            defaultValue={state.email}
             onChange={email => dispatch(setEmail(email))}
             isValid={validations.isEmailValid}
           />
           <DetailsField
             fieldName="Additional Notes"
+            defaultValue={state.notes}
             onChange={notes => dispatch(setAdditionalNotes(notes))}
           />
           <div className="buttons-wrapper">
